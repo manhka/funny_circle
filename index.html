@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="funnyCirlcle.js"></script>
+
+</head>
+<body>
+<script src="funnyCirlcle.js"></script>
+<canvas id="myCanvas" style="border: 3px solid red" width="1411" height="670"></canvas>
+<u><i><strong>Click On Your Screen</strong></i></u>
+
+</body>
+</html>
+<script>
+
+    function createCircle() {
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d')
+        let radius = Math.floor(Math.random() * 30);
+        let x = Math.floor(Math.random() * canvas.width-radius);
+        let y = Math.floor(Math.random() * canvas.height-radius);
+
+        let color1 = Math.floor(Math.random() * 255)
+        console.log('cl1==', color1)
+        let color2 = Math.floor(Math.random() * 255)
+        console.log('cl2==', color2)
+        let color3 = Math.floor(Math.random() * 255)
+        console.log('cl3==', color3)
+        let CircleRandum = new Circle(x, y, radius)
+        console.log(CircleRandum.x)
+        ctx.beginPath()
+        ctx.arc(CircleRandum.x, CircleRandum.y, CircleRandum.R, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(${color1}, ${color2}, ${color3},2)`
+        ctx.fill()
+        ctx.stroke()
+    }
+
+    document.addEventListener('click', createCircle)
+</script>
